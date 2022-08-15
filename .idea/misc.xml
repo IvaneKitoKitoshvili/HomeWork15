@@ -5,8 +5,9 @@
       <map>
         <entry key="..\:/Tbc Android Homeworks/HomeWork15/app/src/main/res/drawable/ic_lock.xml" value="0.1785" />
         <entry key="..\:/Tbc Android Homeworks/HomeWork15/app/src/main/res/layout/activity_main.xml" value="0.14175724637681159" />
-        <entry key="..\:/Tbc Android Homeworks/HomeWork15/app/src/main/res/layout/fragment_log_in_page.xml" value="0.25" />
+        <entry key="..\:/Tbc Android Homeworks/HomeWork15/app/src/main/res/layout/fragment_log_in_page.xml" value="0.1" />
         <entry key="..\:/Tbc Android Homeworks/HomeWork15/app/src/main/res/layout/fragment_register_page.xml" value="0.25" />
+        <entry key="..\:/Tbc Android Homeworks/HomeWork15/app/src/main/res/layout/fragment_user.xml" value="0.22135416666666666" />
         <entry key="..\:/Tbc Android Homeworks/HomeWork15/app/src/main/res/layout/fragment_welcome_page.xml" value="0.1" />
       </map>
     </option>
