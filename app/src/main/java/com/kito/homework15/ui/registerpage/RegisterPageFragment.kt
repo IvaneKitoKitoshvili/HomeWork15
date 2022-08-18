@@ -10,17 +10,10 @@ import com.kito.homework15.databinding.FragmentRegisterPageBinding
 import com.kito.homework15.retrofitclient.ResultHendler
 import kotlinx.coroutines.launch
 
-class RegisterPageFragment : BaseFragment <FragmentRegisterPageBinding, RegisterPageViewModel>() {
-
-    override fun setUpViews() {
-        binding.btnReg.setOnClickListener {
-            observe()
-        }
-    }
-
-    override fun observeData() {
-        observe()
-    }
+class RegisterPageFragment : BaseFragment<FragmentRegisterPageBinding, RegisterPageViewModel>(
+    FragmentRegisterPageBinding::inflate,
+    RegisterPageViewModel::class.java, false
+) {
 
     private fun observe() {
         binding.let {
@@ -84,11 +77,10 @@ class RegisterPageFragment : BaseFragment <FragmentRegisterPageBinding, Register
         )
     }
 
-    override fun getViewModelClass(): Class<RegisterPageViewModel> {
-        return RegisterPageViewModel::class.java
-    }
-
-    override fun getViewBinding(): FragmentRegisterPageBinding {
-        return FragmentRegisterPageBinding.inflate(layoutInflater)
+    override fun getStart() {
+        binding.btnReg.setOnClickListener {
+            //observe()
+            register()
+        }
     }
 }

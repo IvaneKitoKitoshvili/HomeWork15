@@ -14,16 +14,15 @@ import androidx.navigation.fragment.findNavController
 import androidx.viewbinding.ViewBinding
 import com.kito.homework15.BaseFragment
 import com.kito.homework15.databinding.FragmentLogInPageBinding
+import com.kito.homework15.databinding.FragmentUserBinding
 import com.kito.homework15.retrofitclient.ResultHendler
+import com.kito.homework15.ui.user.UserViewModel
 import kotlinx.coroutines.launch
 
-class LogInPageFragment : BaseFragment <FragmentLogInPageBinding, LogInPageViewModel> (){
-    override fun getViewModelClass(): Class<LogInPageViewModel> {
-        return LogInPageViewModel::class.java
-    }
-
-    override fun getViewBinding(): FragmentLogInPageBinding {
-        return FragmentLogInPageBinding.inflate(layoutInflater)
+class LogInPageFragment : BaseFragment <FragmentLogInPageBinding, LogInPageViewModel> (
+    FragmentLogInPageBinding::inflate,
+    LogInPageViewModel::class.java, false){
+    override fun getStart() {
     }
 
 }
