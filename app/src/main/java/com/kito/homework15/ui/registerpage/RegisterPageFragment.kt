@@ -1,46 +1,29 @@
 package com.kito.homework15.ui.registerpage
 
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
-import androidx.fragment.app.viewModels
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.lifecycleScope
 import androidx.lifecycle.repeatOnLifecycle
 import androidx.navigation.fragment.findNavController
+import com.kito.homework15.BaseFragment
 import com.kito.homework15.databinding.FragmentRegisterPageBinding
 import com.kito.homework15.retrofitclient.ResultHendler
 import kotlinx.coroutines.launch
 
-class RegisterPageFragment : Fragment() {
-    private var binding: FragmentRegisterPageBinding? = null
-    private val viewModel: RegisterPageViewModel by viewModels()
+class RegisterPageFragment : BaseFragment <FragmentRegisterPageBinding, RegisterPageViewModel>() {
 
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-        binding = FragmentRegisterPageBinding.inflate(inflater, container, false)
-        return binding!!.root
-    }
-
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        binding?.btnReg?.setOnClickListener {
+    override fun setUpViews() {
+        binding.btnReg.setOnClickListener {
             observe()
         }
     }
 
-    override fun onDestroyView() {
-        super.onDestroyView()
-        binding = null
+    override fun observeData() {
+        observe()
     }
 
     private fun observe() {
-        binding?.let {
+        binding.let {
 
             with(it) {
                 when {
@@ -99,5 +82,13 @@ class RegisterPageFragment : Fragment() {
         findNavController().navigate(
             RegisterPageFragmentDirections.actionRegisterPageFragmentToUserFragment()
         )
+    }
+
+    override fun getViewModelClass(): Class<RegisterPageViewModel> {
+        return RegisterPageViewModel::class.java
+    }
+
+    override fun getViewBinding(): FragmentRegisterPageBinding {
+        return FragmentRegisterPageBinding.inflate(layoutInflater)
     }
 }
